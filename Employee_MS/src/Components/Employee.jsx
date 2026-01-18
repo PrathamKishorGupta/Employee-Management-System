@@ -20,16 +20,16 @@ const Employee = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete("http://localhost:3000/auth/delete_employee/" + id)
-      .then(result => {
-        if(result.data.Status){
-          window.location.reload();         // reload krne ke liye
+    axios
+      .delete("http://localhost:3000/auth/delete_employee/" + id)
+      .then((result) => {
+        if (result.data.Status) {
+          window.location.reload(); // reload krne ke liye
+        } else {
+          alert(result.data.Error);
         }
-        else{
-          alert(result.data.Error)
-        }
-      })
-  }
+      });
+  };
 
   return (
     <div className="px-5 mt-3 ">
@@ -46,8 +46,8 @@ const Employee = () => {
       </Link>
 
       {/* table */}
-      <div className="mt-8 p-4 bg-white shadow-2xl rounded-lg overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
+      <div className="hidden md:block mt-8 p-4 bg-white shadow-2xl rounded-lg overflow-hidden">
+        <table className=" min-w-full divide-y divide-gray-300">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left font-bold text-black-500 uppercase ">
@@ -108,6 +108,43 @@ const Employee = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      
+      {/* CARD VIEW (mobile) */}
+      <div className="md:hidden mt-8 space-y-4">
+        {employee.map((c, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg rounded-lg p-4 flex gap-4"
+          >
+            <img
+              src={`http://localhost:3000/Images/${c.image}`}
+              className="w-16 h-16 rounded-full object-cover"
+            />
+
+            <div className="flex-1 text-sm">
+              <p className="font-bold">{c.name}</p>
+              <p className="text-gray-600">{c.email}</p>
+              <p className="text-gray-600">{c.address}</p>
+              <p className="font-semibold">₹ {c.salary}</p>
+
+              <div className="flex gap-2 mt-3">
+                <Link
+                  to={`/dashboard/edit_employee/${c.id}`}
+                  className="bg-blue-500 text-white px-3 py-1 rounded text-sm"
+                >
+                  Edit
+                </Link>
+                <button
+                  onClick={() => handleDelete(c.id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded text-sm"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,10 +1,19 @@
 import mysql from 'mysql'
+import dotenv from "dotenv";
+dotenv.config();
+
+import fs from "fs";
+
+
 
 const con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Divyansh@12",
-    database: "employeems"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: "employeems",
+    ssl: {
+        ca: fs.readFileSync(process.env.CAcertify)
+    }
 })
 
 con.connect(function(err) {
@@ -18,3 +27,4 @@ con.connect(function(err) {
 })
 
 export default con;
+

@@ -9,17 +9,17 @@ const app = express();
 // Development-friendly CORS: echo the request origin and allow credentials
 // WARNING: echoing origin is intended for local development only.
 
-app.use(cors({
-    origin: (origin, callback) => {
-        // allow requests with no origin (like mobile apps or curl)
-        if (!origin) return callback(null, true);
-        return callback(null, origin);
-    },
-    methods: ['GET', 'POST', 'PUT', 'OPTIONS', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",            // local frontend
+      // deployed frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
-    optionsSuccessStatus: 200,
-}));
+  })
+);
+
 app.use(express.json());
 app.use(cookieParser());
 app.use('/auth' , adminRouter)
@@ -43,7 +43,7 @@ const varifyUser = (req, res, next) => {
 app.get('/verify', varifyUser, (req, res) => {
     return res.json({Status: true, role: req.role, id: req.id})
 })
-
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log('Server is running');
 });

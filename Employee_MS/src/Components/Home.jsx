@@ -62,7 +62,7 @@ const Home = () => {
     //className="w-full min-h-screen bg-cover bg-center bg-no-repeat"
     //style={{ backgroundImage: "url('/Images/Home_bg.jpg')" }}
     >
-      <div className="flex flex-row gap-5 justify-center mt-10">
+      <div className="flex flex-col sm:flex-row  gap-5 justify-center items-center mt-10">
         <div className="w-60 h-30 bg-white shadow-2xl rounded-lg m-5 p-5 flex flex-col border-red-600 border-2">
           <div className="font-bold text-center mb-2 text-xl">
             <h4>Admin</h4>
