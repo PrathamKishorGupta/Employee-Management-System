@@ -20,7 +20,7 @@ const Login = () => {
     setError("");
 
     axios
-      .post("http://localhost:3000/auth/adminlogin", values, {
+      .post("https://employee-management-system-mk0o.onrender.com/auth/adminlogin", values, {
         withCredentials: true,
       })
       .then((res) => {
