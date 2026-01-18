@@ -16,7 +16,7 @@ const Home = () => {
 
   const AdminRecords = () => {
     axios
-      .get("http://localhost:3000/auth/admin_records", {
+      .get("https://employee-management-system-mk0o.onrender.com/auth/admin_records", {
         withCredentials: true,
       })
       .then((result) => {
@@ -29,7 +29,7 @@ const Home = () => {
   };
   const adminCount = () => {
     axios
-      .get("http://localhost:3000/auth/admin_count", { withCredentials: true })
+      .get("https://employee-management-system-mk0o.onrender.com/auth/admin_count", { withCredentials: true })
       .then((result) => {
         if (result.data.Status) {
           setAdminTotal(result.data.Result[0].admin);
@@ -38,7 +38,7 @@ const Home = () => {
   };
   const employeeCount = () => {
     axios
-      .get("http://localhost:3000/auth/employee_count", {
+      .get("https://employee-management-system-mk0o.onrender.com/auth/employee_count", {
         withCredentials: true,
       })
       .then((result) => {
@@ -49,7 +49,7 @@ const Home = () => {
   };
   const salaryCount = () => {
     axios
-      .get("http://localhost:3000/auth/salary_count", { withCredentials: true })
+      .get("https://employee-management-system-mk0o.onrender.com/auth/salary_count", { withCredentials: true })
       .then((result) => {
         if (result.data.Status) {
           setSalaryTotal(result.data.Result[0].salary);
