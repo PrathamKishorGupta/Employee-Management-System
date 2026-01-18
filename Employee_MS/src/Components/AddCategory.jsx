@@ -11,7 +11,7 @@ const AddCategory = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('Sending category:', {name: category});
-    axios.post('http://localhost:3000/auth/add_category', {name: category}, { withCredentials: true })
+    axios.post('https://employee-management-system-mk0o.onrender.com/auth/add_category', {name: category}, { withCredentials: true })
       .then(result => {
         console.log('Add category response:', result.data);
         if(result.data.Status){
