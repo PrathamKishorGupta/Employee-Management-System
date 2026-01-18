@@ -9,7 +9,7 @@ const EmployeeDetail = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:3000/employee/detail/" + id)
+      .get("https://employee-management-system-mk0o.onrender.com/employee/detail/" + id)
       .then((result) => {
         setEmployee(result.data[0]);
       })
@@ -17,7 +17,7 @@ const EmployeeDetail = () => {
   }, [id]);
 
   const handleLogOut = () => {
-    axios.get('http://localhost:3000/employee/logout', { withCredentials: true })
+    axios.get('https://employee-management-system-mk0o.onrender.com/employee/logout', { withCredentials: true })
       .then(result => {
         if(result.data.Status){
           localStorage.removeItem("valid")
