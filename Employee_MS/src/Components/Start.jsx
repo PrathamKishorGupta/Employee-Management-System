@@ -8,7 +8,7 @@ const Start = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/verify", { withCredentials: true })
+      .get("https://employee-management-system-mk0o.onrender.com/verify", { withCredentials: true })
       .then((res) => {
         if (res.data.Status) {
           if (res.data.role === "admin") {
