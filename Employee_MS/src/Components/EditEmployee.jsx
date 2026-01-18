@@ -20,7 +20,7 @@ const EditEmployee = () => {
   // fetch categories for the select dropdown
   useEffect(() => {
     axios
-      .get("http://localhost:3000/auth/categories", { withCredentials: true })
+      .get("https://employee-management-system-mk0o.onrender.com/auth/categories", { withCredentials: true })
       .then((result) => {
         // Accept either an array (old backend) or wrapped object { Status, Result }
         if (Array.isArray(result.data)) {
@@ -43,7 +43,7 @@ const EditEmployee = () => {
       });
 
     axios
-      .get("http://localhost:3000/auth/employee/" + id)
+      .get("https://employee-management-system-mk0o.onrender.com/auth/employee/" + id)
       .then((result) => {
         setEmployee((prev) => ({
           ...prev,
@@ -70,7 +70,7 @@ const EditEmployee = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put("http://localhost:3000/auth/edit_employee/" + id, employee, { withCredentials: true })
+    axios.put("https://employee-management-system-mk0o.onrender.com/auth/edit_employee/" + id, employee, { withCredentials: true })
       .then((result) => {
         console.log(result.data);
         if (result.data && result.data.Status) {
