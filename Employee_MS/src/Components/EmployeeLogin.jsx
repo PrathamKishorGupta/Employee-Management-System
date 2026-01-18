@@ -19,7 +19,7 @@ const EmployeeLogin = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Sending login data:', values);
-    axios.post('http://localhost:3000/employee/employee_login', values)
+    axios.post('https://employee-management-system-mk0o.onrender.com/employee/employee_login', values)
       .then(result => {
         console.log('Login response:', result.data);
         if(result.data.loginStatus){
