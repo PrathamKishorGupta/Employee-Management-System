@@ -118,8 +118,7 @@ const Employee = () => {
             className="bg-white shadow-lg rounded-lg p-4 flex gap-4"
           >
             <img
-              {/* src={`https://employee-management-system-mk0o.onrender.com/Images/${c.image}`} */}
-              src={`https://employee-management-system-mk0o.onrender.com/${c.image}`}
+              src={`http://localhost:3000/Images/${c.image}`}
               className="w-16 h-16 rounded-full object-cover"
             />
 
