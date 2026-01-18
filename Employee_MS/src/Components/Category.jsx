@@ -9,7 +9,7 @@ const Category = () => {
 
   useEffect(() => {
     console.log('Fetching categories...');
-    axios.get('http://localhost:3000/auth/categories', { withCredentials: true })
+    axios.get('https://employee-management-system-mk0o.onrender.com/auth/categories', { withCredentials: true })
       .then(result => {
         console.log('Categories response:', result.data);
         // Handle both array response and wrapped response
