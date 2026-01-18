@@ -12,7 +12,6 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",            // local frontend
       "https://employee-management-system-fr.onrender.com"  // deployed frontend
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
